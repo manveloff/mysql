@@ -1,26 +1,28 @@
-###############################
-## 4gekkman/docker-mysql-dev ##
-###############################
-## Оглавление
+#####################################
+##                                 ##
+##   Docker file of Docker image   ##
+##                                 ##
+#####################################
+## Table of contents
 ##  
-##  1. Базовый образ и разработчики
-##  2. Установить необходимые пакеты
-##  3. Назначить cmd по умолчанию
-##  4. Назначить entrypoint
+##  1. Base image and developers
+##  2. Install packages
+##  3. Set default cmd
+##  4. Set entrypoint
 ##
 
-# 1. Базовый образ и разработчики
+# 1. Base image and developers
 FROM mysql:5.7
-MAINTAINER German Manvelov <4gekkman@gmail.com>
+MAINTAINER German Manvelov <gtmmm2011@gmail.com>
 
-# 2. Установить необходимые пакеты
+# 2. Installation of packages
 RUN apt-get update && apt-get install -y \
 
   supervisor \
   ; exit 0
 
-# 3. Назначить cmd по умолчанию
+# 3. Set default cmd
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor.d/supervisor-docker-mysql-dev.ini"]
 
-# 4. Назначить entrypoint
+# 4. Set entrypoint
 # ENTRYPOINT ["docker-entrypoint.sh"]
